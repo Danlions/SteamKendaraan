@@ -1,0 +1,75 @@
+/*DASHBOARD*/
+.root1{
+    -fx-background-color:#22A7E4;
+}
+.side_ankerpane{
+    -fx-background-color:#22A7E4;
+}
+.inner_pane{
+    -fx-background-color:#6BC2F4;
+    -fx-background-radius: 20px;
+}
+/* --- 1. DEFAULT STYLE --- */
+.btn_home {
+    -fx-background-color: #22A7E4;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px 0px 0px 50px;
+    -fx-background-radius: 50px 0px 0px 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #22A7E4;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 10;
+    -fx-graphic-text-gap: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0.5, 0, 4); 
+}
+.btn_home:hover {
+    -fx-background-color: #6BC2F4;
+    -fx-border-color: #6BC2F4;
+}
+.btn_home:pressed {
+    -fx-background-color: #F2F2F2;
+    -fx-border-color: #F2F2F2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0.1, 0, 1);
+    -fx-text-fill: #22A7E4;
+}
+.btn_home.active {
+    -fx-background-color: #F2F2F2;
+    -fx-border-color: #F2F2F2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0.1, 0, 1);
+    -fx-text-fill: #22A7E4;
+}
+.btn_logout {
+    -fx-background-color:#BF0F20;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #BF0F20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0.5, 0, 4);
+}
+.btn_logout:hover {
+    -fx-opacity: 1.0;
+    -fx-background-color: #E81123;
+}
+.btn_logout:pressed {
+    -fx-background-color: #E81123;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0.1, 0, 1);
+}
+.bgpane {
+    -fx-background-color:#F2F2F2;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 30px 0px 0px 30px;
+    -fx-background-radius: 30px 0px 0px 30px;
+    -fx-border-style: solid;
+    -fx-border-color: #F2F2F2;
+}
+.dashboard {
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 25px;
+}
+.scene {
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 10px;
+}

@@ -1,0 +1,34 @@
+/* --- BAR CHART (BIRU MUDA REQUEST LU) --- */
+.bar-chart .chart-bar {
+    -fx-bar-fill: #6BC2F4; 
+    -fx-background-radius: 5 5 0 0;
+}
+
+.bar-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+/* --- PIE/DONUT CHART (FIX WARNA HILANG) --- */
+
+/* Selector khusus untuk porsi Progress (Hijau) */
+.default-color0.chart-pie {
+    -fx-pie-color: #00b894 !important;
+}
+
+/* Selector khusus untuk porsi Sisa (Abu-abu) */
+.default-color1.chart-pie {
+    -fx-pie-color: #f1f2f6 !important;
+}
+
+/* Hilangkan garis label agar jadi Donut bersih */
+.chart-pie-label {
+    -fx-fill: transparent;
+}
+.chart-pie-label-line {
+    -fx-stroke: transparent;
+}
+
+.chart-pie {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
