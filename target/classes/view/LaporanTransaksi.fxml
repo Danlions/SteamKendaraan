@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1000.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LaporanTransaksiController">
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <AnchorPane style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label layoutX="20.0" layoutY="18.0" text=" Laporan Transaksi" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="18.0">
+                            <font> <Font name="Century Gothic Bold" size="25.0" /> </font>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image> <Image url="@/assets/report-active.png" /> </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                        
+                        <VBox layoutX="20.0" layoutY="60.0" prefWidth="939.0" spacing="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <children>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                            <image> <Image url="@/assets/search.png" /> </image>
+                                        </ImageView>
+                                        <TextField fx:id="txtNamaPelangganSearch" prefWidth="120.0" promptText="Cari data..." styleClass="search-bar" HBox.hgrow="ALWAYS" />
+                                        <ComboBox fx:id="cmbJenisLayananFilter" prefWidth="160.0" promptText="Semua Layanan" styleClass="btnFilter" />
+                                        <ComboBox fx:id="cmbJenisKendaraanFilter" prefWidth="160.0" promptText="Semua Kendaraan" styleClass="btnFilter" />
+                                        <ComboBox fx:id="cmbFilterBulanTabel" prefWidth="125.0" promptText="Semua Bulan" styleClass="btnFilter" />
+                                        <DatePicker fx:id="dpTanggalFilter" prefWidth="130.0" promptText="Pilih Tanggal" />
+                                        <Button fx:id="btnReset" onAction="#handleReset" prefWidth="70.0" styleClass="btnReset" stylesheets="@../css/styleTambah.css" text="Reset" />
+                                        <Button fx:id="btnExport" onAction="#handleExport" prefWidth="80.0" styleClass="btnAdd" stylesheets="@../css/styleTambah.css" text="Export">
+                                 <graphic>
+                                    <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@/assets/export.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                                    </children>
+                                </HBox>
+
+                                <Separator prefWidth="200.0" />
+                        <ComboBox fx:id="cmbFilterTahun" prefWidth="150.0" promptText="Tahun" styleClass="btnFilter" />
+
+                                <HBox spacing="15.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #ffffff; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #dee2e6;" styleClass="btnFilter" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <VBox prefWidth="150.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label text="Bulan Utama" textFill="#777777" />
+                                                        <ComboBox fx:id="cmbBulan1" maxWidth="Infinity" promptText="Pilih Bulan" styleClass="btnFilter" />
+                                                        <Label fx:id="lblTotalBulan1" text="Rp 0" textFill="#2c3e50">
+                                                            <font> <Font name="System Bold" size="16.0" /> </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+
+                                        <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="150.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #dee2e6;" styleClass="btnFilter" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label text="Bulan Pembanding" textFill="#777777" />
+                                                        <ComboBox fx:id="cmbBulan2" maxWidth="Infinity" promptText="Pilih Bulan" styleClass="btnFilter" />
+                                                        <Label fx:id="lblTotalBulan2" text="Rp 0" textFill="#2c3e50">
+                                                            <font> <Font name="System Bold" size="16.0" /> </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+
+                                        <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="125.0" spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #bdc3c7;" styleClass="btnFilter">
+                                            <children>
+                                                <VBox alignment="CENTER_LEFT" spacing="2.0">
+                                                    <children>
+                                                        <Label text="Growth" textFill="#7f8c8d" />
+                                                        <Label fx:id="lblPersentase" text="0%" textFill="#7f8c8d">
+                                                            <font> <Font name="System Bold" size="24.0" /> </font>
+                                                        </Label>
+                                                        <Label fx:id="lblSelisihHarga" text="Selisih: Rp 0" textFill="#7f8c8d">
+                                                            <font> <Font size="11.0" /> </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding> <Insets bottom="5.0" top="5.0" /> </padding>
+                        </VBox>
+                        
+                        <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="292.8" prefHeight="417.0" prefWidth="939.0" spacing="5.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="300.0">
+                            <children>
+                                <TableView fx:id="transaksiTable" prefHeight="434.0" prefWidth="939.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colIdTransaksi" prefWidth="55.0" text="ID" />
+                                        <TableColumn fx:id="colWaktuTransaksi" prefWidth="130.0" text="Tanggal" />
+                                        <TableColumn fx:id="colNamaPelanggan" prefWidth="130.0" text="Pelanggan" />
+                                        <TableColumn fx:id="colPelangganTelp" prefWidth="120.0" text="Telepon" />
+                                        <TableColumn fx:id="colPlatNomor" prefWidth="110.0" text="Plat Nomor" />
+                                        <TableColumn fx:id="colNamaLayanan" prefWidth="140.0" text="Layanan" />
+                                        <TableColumn fx:id="colJenisKendaraan" prefWidth="110.0" text="Kendaraan" />
+                                        <TableColumn fx:id="colTotalHarga" prefWidth="110.0" text="Total Harga" />
+                                        <TableColumn fx:id="colKasir" prefWidth="100.0" text="Kasir" />
+                                    </columns>
+                                    <opaqueInsets>
+                                      <Insets />
+                                    </opaqueInsets>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+    <stylesheets>
+        <URL value="@../css/styleTable.css" />
+        <URL value="@../css/styleTambah.css" />
+    </stylesheets>
+</AnchorPane>
