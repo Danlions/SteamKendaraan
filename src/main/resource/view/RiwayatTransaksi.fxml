@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RiwayatTransaksiController">
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <AnchorPane style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" VBox.vgrow="ALWAYS">
+                    <children>
+
+                        <Label layoutX="20.0" layoutY="18.0" text=" Riwayat Transaksi" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="18.0">
+                            <font>
+                                <Font name="Century Gothic Bold" size="25.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/assets/report-active.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+
+                        <VBox layoutX="20.0" layoutY="60.0" spacing="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <children>
+                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@/assets/search.png" />
+                                            </image>
+                                        </ImageView>
+                                        <TextField fx:id="txtNamaPelangganSearch" maxWidth="240.0" prefWidth="120.0" promptText="Cari Nama, No. Telp, Plat Nomor..." styleClass="search-bar" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <children>
+                                        <ComboBox fx:id="cmbFilterBulan" prefWidth="155.0" promptText="Semua Bulan" styleClass="btnFilter" />
+                                        <ComboBox fx:id="cmbFilterTahun" prefWidth="155.0" promptText="Semua Tahun" styleClass="btnFilter" />
+                                        <ComboBox fx:id="cmbJenisLayananFilter" prefWidth="155.0" promptText="Semua Layanan" styleClass="btnFilter" />
+                                        <ComboBox fx:id="cmbJenisKendaraanFilter" prefWidth="155.0" promptText="Semua Kendaraan" styleClass="btnFilter" />
+                                        
+                                        <DatePicker fx:id="dpTanggalFilter" prefHeight="26.0" prefWidth="120.0" promptText="Pilih Tanggal" />
+                                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                 <children>
+                                              
+                                              <Button fx:id="btnReset" mnemonicParsing="false" onAction="#handleReset" prefHeight="27.0" prefWidth="65.0" styleClass="btnReset" stylesheets="@../css/styleTambah.css" text="Reset" />
+                                 </children></HBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" top="5.0" />
+                            </padding>
+                        </VBox>
+
+                        <VBox layoutX="20.0" layoutY="150.0" spacing="5.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="150.0">
+                            <children>
+                                <TableView fx:id="transaksiTable" editable="true" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colIdTransaksi" minWidth="40.0" prefWidth="55.0" text="ID" />
+                                        <TableColumn fx:id="colWaktuTransaksi" minWidth="90.0" prefWidth="150.0" text="Tanggal" />
+                                        <TableColumn fx:id="colNamaPelanggan" minWidth="80.0" prefWidth="150.0" text="Pelanggan" />
+                                        <TableColumn fx:id="colPelangganTelp" minWidth="80.0" prefWidth="150.0" text="Telepon" />
+                                        <TableColumn fx:id="colPlatNomor" minWidth="50.0" prefWidth="145.0" text="Plat Nomor" />
+                                        <TableColumn fx:id="colNamaLayanan" minWidth="140.0" prefWidth="160.0" text="Layanan" />
+                                        <TableColumn fx:id="colJenisKendaraan" minWidth="150.0" prefWidth="150.0" text="Kendaraan" />
+                                        <TableColumn fx:id="colTotalHarga" minWidth="140.0" prefWidth="120.0" text="Total Harga" />
+                                        <TableColumn fx:id="colKasir" minWidth="140.0" prefWidth="120.0" text="Kasir" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" />
+                    </padding>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+    <stylesheets>
+        <URL value="@../css/styleTable.css" />
+        <URL value="@../css/styleTambah.css" />
+    </stylesheets>
+</AnchorPane>

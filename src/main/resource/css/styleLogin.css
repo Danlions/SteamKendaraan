@@ -1,0 +1,55 @@
+/*LOGIN*/
+.root{
+    -fx-background-color:#F2F2F2;
+}
+
+.warning-bar {
+    -fx-background-color: #ff4d4d; /* Merah terang */
+    -fx-background-radius: 0 0 0 0; /* Radius hanya di sudut bawah */
+    -fx-padding: 5 15 5 15; /* Padding atas/bawah agar label berada di tengah */
+    -fx-max-width: 360px; /* Sesuai dengan batasan lebar di FXML */
+}
+
+/* Label di dalam Warning Bar (fx:id="statusLabel") */
+.warning-label {
+    -fx-text-fill: white; 
+    -fx-font-size: 14px; 
+    -fx-font-weight: bold;
+}
+
+/*BorderPane*/
+.BorderStyle {
+    -fx-background-color:#FFFFFF;
+    -fx-border-style: solid;
+    -fx-border-color: #BABABA;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 0);
+}
+
+.login-btn {
+    -fx-background-color: #03a9F4;
+    -fx-background-radius: 25;
+    -fx-font-size: 16px; 
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0.5, 0, 4); 
+    -fx-padding: 8 25 10 25; 
+}
+
+/* Hover Effect */
+.login-btn:hover {
+    -fx-opacity: 0.8; 
+    -fx-background-color: #0288D1; 
+    -fx-text-fill: white; 
+}
+
+/* Pressed Effect */
+.login-btn:pressed {
+    -fx-background-color: #0288D1; 
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 1, 0.1, 0, 1); 
+    -fx-opacity: 0.8; 
+    -fx-translate-y: 1px;
+    -fx-translate-x: 0.5px;
+    -fx-text-fill: white; 
+}

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeAdminController">
+   <children>
+      <VBox alignment="TOP_CENTER" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <AnchorPane style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label layoutX="15.0" layoutY="15.0" text="Dashboard Analisis" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+                     <font><Font name="Century Gothic Bold" size="20.0" /></font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image><Image url="@/assets/home-active.png" /></image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+
+                  <ComboBox fx:id="cbGlobalFilter" layoutX="530.0" layoutY="15.0" prefHeight="28.0" prefWidth="140.0" styleClass="btnFilter" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+
+                  <VBox layoutX="15.0" layoutY="55.0" spacing="12.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="55.0">
+                     <children>
+                        <HBox spacing="12.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox prefHeight="342.0" prefWidth="340.0" style="-fx-border-color: #f0f0f0; -fx-border-radius: 8; -fx-background-radius: 8;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Analisis Pendapatan" textFill="#636e72">
+                                       <font><Font name="System Bold" size="12.0" /></font>
+                                       <padding><Insets left="12.0" top="8.0" /></padding>
+                                    </Label>
+                                    <BarChart fx:id="barChartPendapatan" animated="false" legendVisible="false" prefHeight="200.0" styleClass="bar-chart" VBox.vgrow="ALWAYS">
+                                       <xAxis><CategoryAxis side="BOTTOM" fx:id="xAxisBulan" /></xAxis>
+                                       <yAxis><NumberAxis side="LEFT" /></yAxis>
+                                    </BarChart>
+                                 </children>
+                              </VBox>
+
+                              <VBox minWidth="240.0" prefHeight="342.0" prefWidth="280.0" spacing="10.0">
+                                 <children>
+                                    <HBox prefWidth="240.0" spacing="10.0">
+                                       <children>
+                                          <VBox prefWidth="120.0" style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label text="TOTAL PENDAPATAN" textFill="#636e72"><font><Font name="System Bold" size="10.0" /></font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </VBox.margin></Label>
+                                                <Label fx:id="lblTotalPendapatan" text="Rp 0" textFill="#00b894"><font><Font name="System Bold" size="16.0" /></font></Label>
+                                                <Label fx:id="lblGrowthPendapatan" text="+0% dari periode lalu" textFill="#00b894"><font><Font name="System Bold" size="9.0" /></font></Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label text="TOTAL PELANGGAN" textFill="#636e72"><font><Font name="System Bold" size="10.0" /></font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </VBox.margin></Label>
+                                                <Label fx:id="lblTotalPelanggan" text="0" textFill="#0984e3"><font><Font name="System Bold" size="16.0" /></font></Label>
+                                                <Label fx:id="lblGrowthPelanggan" text="+ 0 Pelanggan" textFill="#0984e3"><font><Font name="System Bold" size="9.0" /></font></Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <VBox prefWidth="240.0" spacing="8.0" style="-fx-background-color: #ffffff; -fx-border-color: #f0f0f0; -fx-border-radius: 8; -fx-padding: 10;" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Ringkasan Transaksi" textFill="#636e72"><font><Font name="System Bold" size="12.0" /></font>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin></Label>
+                                          <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                             <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                <image>
+                                                   <Image url="@/assets/done.png" />
+                                                </image>
+                                             </ImageView>
+                                             <VBox>
+                                                <Label text="Selesai" textFill="#b2bec3">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label fx:id="lblTotalTrans" style="-fx-font-weight: bold;" text="0">
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                             </VBox>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                             <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                <image>
+                                                   <Image url="@/assets/ongoing.png" />
+                                                </image>
+                                             </ImageView>
+                                             <VBox>
+                                                <Label text="Sedang Dicuci" textFill="#b2bec3">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label fx:id="lblCountProses" style="-fx-font-weight: bold;" text="0">
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                             </VBox>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                             <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                <image>
+                                                   <Image url="@/assets/waiting.png" />
+                                                </image>
+                                             </ImageView>
+                                             <VBox>
+                                                <Label text="Belum Dicuci" textFill="#b2bec3">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label fx:id="lblCountAntri" style="-fx-font-weight: bold;" text="0">
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                             </VBox>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                             <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                <image>
+                                                   <Image url="@/assets/mobil.png" />
+                                                </image>
+                                             </ImageView>
+                                             <VBox>
+                                                <Label text="Mobil" textFill="#b2bec3">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label fx:id="lblCountMobil" style="-fx-font-weight: bold;" text="0">
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                             </VBox>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                             <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                <image>
+                                                   <Image url="@/assets/motor.png" />
+                                                </image>
+                                             </ImageView>
+                                             <VBox>
+                                                <Label text="Motor" textFill="#b2bec3">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                                <Label fx:id="lblCountMotor" style="-fx-font-weight: bold;" text="0">
+                                                   <padding>
+                                                      <Insets left="2.0" />
+                                                   </padding>
+                                                </Label>
+                                             </VBox>
+                                             <VBox.margin>
+                                                <Insets top="2.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+
+                        <VBox style="-fx-background-color: #fdfdfd; -fx-border-color: #f0f0f0; -fx-border-radius: 8; -fx-padding: 10;">
+                           <children>
+                              <Label text="Popularitas Layanan (%)" textFill="#636e72">
+                                 <font><Font name="System Bold" size="12.0" /></font>
+                                 <VBox.margin><Insets bottom="5.0" /></VBox.margin>
+                              </Label>
+                              <StackedBarChart fx:id="stackedBarPopularitas" animated="false" categoryGap="0.0" legendSide="RIGHT" maxHeight="50.0" prefHeight="80.0" VBox.vgrow="NEVER">
+                                 <xAxis><NumberAxis autoRanging="false" lowerBound="0" side="BOTTOM" tickUnit="10" upperBound="100" fx:id="xAxisPersen" /></xAxis>
+                                 <yAxis><CategoryAxis fx:id="yAxisLayanan" side="LEFT" /></yAxis>
+                              </StackedBarChart>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../css/styleTable.css" />
+      <URL value="@../css/styleTambah.css" />
+      <URL value="@../css/styleChart.css" />
+   </stylesheets>
+</AnchorPane>
