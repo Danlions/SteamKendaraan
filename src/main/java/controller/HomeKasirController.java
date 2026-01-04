@@ -263,5 +263,4 @@ public class HomeKasirController implements Initializable {
             } catch (SQLException e) { e.printStackTrace(); }
         });
     }
-
 }
