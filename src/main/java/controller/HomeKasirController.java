@@ -204,7 +204,6 @@ public class HomeKasirController implements Initializable {
             textNode.setFont(new Font("Monospaced", 9)); 
 
             TextFlow flow = new TextFlow(textNode);
-            flow.setTextAlignment(TextAlignment.LEFT);
 
             flow.setPrefWidth(200); 
 
@@ -264,4 +263,5 @@ public class HomeKasirController implements Initializable {
             } catch (SQLException e) { e.printStackTrace(); }
         });
     }
+
 }
